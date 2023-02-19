@@ -22,15 +22,12 @@ export const mutations = {
        
         const t = new Date().toLocaleDateString()
         const d = new Date(date).toLocaleDateString()
-        const tA = new Date().toLocaleTimeString()
-        const dA = new Date(date).toLocaleTimeString()
-        
-      
-        const TaskStatus = (d > t ) ? 'В работе' : 'Просрочена'
+        const tA = new Date().toLocaleTimeString().slice(0,5)
+        const TaskStatus = (d >= t && tA < time ) ? 'В работе' : 'Просрочена'
         state.tasks[i] = {...task,date,time,decrtiption,TaskStatus}
 
        localStorage.setItem('tasks', JSON.stringify(state.tasks))
-        console.log((new Date(date)))
+        console.log(tA)
     },
     CompleteTask(state,id){
         const i = state.tasks.findIndex(task => task.id === id)
