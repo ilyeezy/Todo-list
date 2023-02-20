@@ -5,8 +5,12 @@ tasks:[]
 
 export const mutations = {
     init(state){
+        
         state.tasks = JSON.parse(localStorage.getItem('tasks') || '[]' ).map(task=>{
-            if(new Date(task.date,task.time) < new Date() && task.TaskStatus !== 'Завершено'){
+            const t = new Date().toLocaleDateString()
+            const d = new Date(task.date).toLocaleDateString()
+            const tA = new Date().toLocaleTimeString().slice(0,5)
+            if(d <= t && tA >= task.time && task.TaskStatus !== 'Завершено'){
                 task.TaskStatus = 'Просрочена'
             }
             return task
