@@ -1,67 +1,10 @@
 <template>
     <div class="CreateTusk">
-      
         <div class="container">
-           
             <div class="CreateTusk__content">
         <h1 class="CreateTusk__title">Create your tusk</h1>
         <!-- TODO: <postForm /> -->
         <postForm ></postForm>
-       
-        
-<!-- <form @keydown.enter="$event.preventDefault()" class="CreateTusk__form form">
-<div class="form__inputs inputs">
-    <div class="user-input-wrp">
-  <br/>
-  <input placeholder=" " v-model="task.title" id="title" type="text" class="inputText"  />
-  <label for="title" class="floating-label">Title</label>
-</div>
-   
-<div class="user-input-wrp">
-  <br/>
-  <div class="tags" >
-    <div v-for="(tag,i) in tags " :key="tag"  class="tags__nameTags">{{tag}}
-      <button @click="deleteTag(i)" class="tags__button">x</button></div>
-  </div>  
-  <input placeholder=" " id="tags"  v-on:keyup.enter.prevent="addTag(tag) | myFilter()" type="text"  v-model="tag" class="inputText" />
-  
-  <label for="tags" class="floating-label">Tags</label>
-
-</div>
-<div class="user-input-wrp">
-  <br/>
-  <input placeholder=" " v-model="task.date" id="date" type="date" class="inputText" />
-</div>
-</div>
-<div  class="form__decrtiption decrtiption user-input-wrp">
-    
-    <br/>
-    <span
-    class="lenght"
-    :class="this.status === true ? lengthLimit():''"
-    v-bind="decrtiptionLimitation()">
-    {{ task.decrtiption.length }} / 2048</span>
-    <textarea 
-    @keydown.enter="$event.stopPropagation()"
-    v-bind="decrtiption()"
-    id="description"
-    placeholder=" "
-    style="float:right"
-    :class="this.status === true ? limit():''"
-    class="decrtiption__text text inputText inputText__border" 
-    :maxlength="maxLength"
-    v-model="task.decrtiption"
-    ></textarea>
-    <label for="description"
-    class="floating-label floating-label__descrip"
-    >Description</label>
-  
-</div>
-
-    <div class="form__button">
-        <button @click="CreateTusk()">create</button>
-    </div>
-</form> -->
 </div>
 
 </div>
@@ -69,20 +12,8 @@
 </template>
 
 <script>
-
     export default {
-     
-        methods:{
-            // CreateTusk(task){
-            //    this.tasks.push(task)
-            //     console.log(this.task)
-            // },
-               
-            },
-  
     }
-     
-    
 </script>
 
 <style lang="scss" >

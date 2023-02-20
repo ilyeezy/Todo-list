@@ -4,7 +4,7 @@
     <nav >
       <div class="navbar">
     <div class="navbar__title">
-      <h1 class="title"> <nuxt-link class="a" no-prefetch id="nav_tasks" active-class="acrive"  :to="'/mainTask'">Tasks</nuxt-link></h1>
+      <h1 class="title"> <nuxt-link class="a" no-prefetch id="nav_tasks" active-class="acrive"  :to="'/mainTask'">TodoList</nuxt-link></h1>
     </div>
     <div class="navbar__menu">
        <ul  class="menu__list">
@@ -16,7 +16,6 @@
 </nav>
   </header>
 </template>
-
 <script>
     export default {
         /**
@@ -24,7 +23,6 @@
          */
     }
 </script>
-
 <style lang="scss" scoped>
 /**
  * !!!Глобальные стили 
@@ -33,7 +31,6 @@ a.nuxt-link-active{
   color:rgb(255, 238, 0);
   height: 0;
   cursor: text;
- 
 }
 a.nuxt-link-exact-active{
   color:black;
@@ -50,7 +47,6 @@ a.nuxt-link-exact-active{
   :hover{
     color:rgb(255, 238, 0);
  }
- 
 
 }
 .navbar {
@@ -67,16 +63,12 @@ a.nuxt-link-exact-active{
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 30px;
   letter-spacing: 2px;
- 
 }
-
 &__menu {
   height: 100%;
  display:flex;
 flex: 1 1 auto;
 justify-content: flex-end;
-
-
 }
 }
 .a {
@@ -84,13 +76,9 @@ height: 100%;
 display: flex;
 align-items:center;
 color:white;
-text-decoration: none;
-
-
-  
+text-decoration: none; 
 }
 .menu {
-
   &__list { 
 height: 100%;
     flex: 0 0 25%;
@@ -98,11 +86,8 @@ height: 100%;
  align-items: center;
  justify-content: space-evenly;
 }
-
-
 }
 .list {
-
 &__element {  
   list-style-type: none;
   font-size: 25px;
@@ -113,12 +98,6 @@ height: 100%;
   :hover{
     color:rgb(255, 238, 0);
  }
-
 }
-
 }
-
-
-
-
 </style>

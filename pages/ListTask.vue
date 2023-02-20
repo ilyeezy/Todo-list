@@ -6,7 +6,6 @@
  <TaskList :is-loaded="isLoaded" />
 </div>
 </template>
-
 <script>
     export default {
         data () {

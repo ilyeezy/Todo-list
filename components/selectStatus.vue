@@ -25,7 +25,7 @@
         },
     }
 </script>
-    
+
     <style lang="scss" scoped>
     .selectStatus{
     padding-right: 10px;
@@ -34,50 +34,3 @@
     align-items: center;
    }
     </style>
-
-<!-- лишний код ? -->
-
-<!-- <template>
-    <div class="selectStatus" >
-        <select v-model="value">
-    <option disabled  value=" ">Фильтр</option>
-    <option 
-    v-for="option in options" 
-    :key="option.value" 
-   >
-    {{option.name}}
-</option>
-    </select>
-    </div>
-</template>
-
-<script>
-    export default {
-        props:{
-               
-            options:{
-                required:true,
-                type:Array,
-                default:()=>[]
-            }
-        },
-      data(){
-        return {
-            value:' '
-        }
-      },
-      methods:{
-        
-      }
-    }
-</script>
-
-<style lang="scss" scoped>
-   .selectStatus{
-    padding-right: 10px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-   }
-
-</style> -->
