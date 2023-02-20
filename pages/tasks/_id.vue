@@ -1,5 +1,6 @@
 <template>
-        <div class="idTask" v-if="task">
+    <div>
+        <div class="idTask" v-if="task && isLoaded">
             <div >
     <h1  class="titleTask">{{ task.title }}</h1>
    </div>
@@ -61,28 +62,18 @@
    </form>
  
         </div>
+        <p v-else-if="!isLoaded">Задача загружается</p>
         <p v-else>Task not found</p>
+    </div>
 </template>
 
 <script>
 import { mapGetters,mapActions } from 'vuex'
   
     export default {
-        // fetch(){
-        //      this.task = this.$store.getters.getTaskbyId(+this.$route.params.id)
-        //     console.log(this.task)
-        //   console.log(this.$store.getters.getTaskbyId)
-        // },
-        // asyncData(ctx) {
-        //     console.log(ctx)
-        //     const task = ctx.store.getters.getTaskbyId(+ctx.route.params.id)
-            
-        //     console.log(task)
-        //     return {task}
-        // },
         data(){
             return {
-           
+                isLoaded: false,
                 tags:[],
                 tag:'',
                 maxLength: 2048,
@@ -92,28 +83,24 @@ import { mapGetters,mapActions } from 'vuex'
                 title:'',
                 date:'',
                 time:''
-                
-                
             }
         },
         computed:{
-            ...mapGetters({
-                task:'getTaskbyId',
-                
-            }),
-           task(){
-           return this.$store.getters.getTaskbyId(+this.$route.params.id)
-           }
-         
+            task () {
+                return this.$store.getters.getTaskbyId(+this.$route.params.id)
+            }
         },
-              mounted(){
-            this.init();
-            this.decrtiption = this.task.decrtiption;
-            this.date = this.task.date;
-            this.time = this.task.time;
-            this.$nextTick(function(){
-                 this.resizeTextarea();
-            })
+
+        mounted(){
+            setTimeout(() => {
+                this.decrtiption = this.task.decrtiption;
+                this.date = this.task.date;
+                this.time = this.task.time;
+                this.isLoaded = true
+                setTimeout(() => {
+                    this.resizeTextarea();
+                })
+            }, 400)
         }, 
         
         destroyed(){
@@ -127,7 +114,7 @@ import { mapGetters,mapActions } from 'vuex'
      
             methods:{
                 resizeTextarea() {
-                    let {textarea} = this.$refs
+                    let { textarea } = this.$refs
                     textarea.style.height = "33px";
                     textarea.style.height = textarea.scrollHeight + "px"; 
                 },
@@ -190,9 +177,6 @@ import { mapGetters,mapActions } from 'vuex'
                 this.$toast.success('Задача выполнена')
             },
       
-    ...mapActions([
-        'init'
-    ])
             
 
     

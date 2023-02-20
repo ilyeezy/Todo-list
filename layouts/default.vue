@@ -7,11 +7,20 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import headerVue from '@/components/header.vue'
 export default {
 components:{
   headerVue
-}
+},
+mounted () {
+  this.init()
+},
+methods: {
+  ...mapActions([
+      'init'
+    ])
+},
 }
 </script>
 <style >

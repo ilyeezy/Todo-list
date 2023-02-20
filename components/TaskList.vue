@@ -4,7 +4,7 @@
             v-model="select"
             :options="sortOptions"
             ></selectStatus>
-                <table v-if="tasks.length">   
+                <table v-if="tasks.length && isLoaded">   
                     <thead>
                     <tr>
                         <th>№</th>
@@ -22,6 +22,7 @@
                    :key="task.id"
                    > </TaskItem>
         </table>
+                <p v-else-if="!isLoaded">Задачи загружаются</p>
                 <p v-else>Oh,sorry, but you have not added any task</p>
             </div>
 </template>
@@ -31,6 +32,12 @@ import selectStatus from '@/components/selectStatus.vue'
 import TaskItem from '@/components/TaskItem.vue'
 import { mapGetters,mapActions } from 'vuex';
     export default { 
+        props: {
+            isLoaded: {
+                type: Boolean,
+                default: false
+            }
+        },
         data(){
     return{
         sortOptions:[
@@ -66,17 +73,6 @@ import { mapGetters,mapActions } from 'vuex';
     }   
 
   },
- methods:{
-    ...mapActions([
-        'init'
-    ])
- },
- /** 
-  * зачем async ?
-  */
- async mounted()  {
-    this.init()
- }
     
  
  
