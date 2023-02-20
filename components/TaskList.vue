@@ -29,7 +29,7 @@
 <script>
 import selectStatus from '@/components/selectStatus.vue'
 import TaskItem from '@/components/TaskItem.vue'
-import { mapGetters,mapActions } from 'vuex';
+import { mapGetters } from 'vuex';
     export default { 
         data(){
     return{
@@ -66,18 +66,6 @@ import { mapGetters,mapActions } from 'vuex';
     }   
 
   },
- methods:{
-    ...mapActions([
-        'init'
-    ])
- },
- async mounted()  {
-    this.init()
- }
-    
- 
- 
-  
     }
 </script>
 

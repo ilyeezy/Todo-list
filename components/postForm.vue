@@ -79,7 +79,7 @@
    
              this.date = new Date().toISOString().slice(0,10);
              this.time = new Date().toLocaleTimeString().slice(0,5)
-             console.log(this.time)
+            
         },
         destroyed(){
             if(this.date && this.date.destroy){

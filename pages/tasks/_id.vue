@@ -73,21 +73,10 @@
 </template>
 
 <script>
-import { mapGetters,mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
   
     export default {
-        // fetch(){
-        //      this.task = this.$store.getters.getTaskbyId(+this.$route.params.id)
-        //     console.log(this.task)
-        //   console.log(this.$store.getters.getTaskbyId)
-        // },
-        // asyncData(ctx) {
-        //     console.log(ctx)
-        //     const task = ctx.store.getters.getTaskbyId(+ctx.route.params.id)
-            
-        //     console.log(task)
-        //     return {task}
-        // },
+      
         data(){
             return {
            
@@ -115,7 +104,7 @@ import { mapGetters,mapActions } from 'vuex'
          
         },
               mounted(){
-            this.init();
+           
             this.decrtiption = this.task.decrtiption;
             this.date = this.task.date;
             this.time = this.task.time;
@@ -194,18 +183,12 @@ import { mapGetters,mapActions } from 'vuex'
                 
                 this.click = true;
                
-                // setTimeout(()=>{
-                //     this.click = false;
-                // },0)
+            
             },
             CompleteTask(){
                 this.$store.dispatch('CompleteTask',this.task.id)
             },
-      
-    ...mapActions([
-        'init'
-    ])
-            
+          
 
     
     }
