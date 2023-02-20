@@ -40,7 +40,7 @@ export const mutations = {
     },
     removeTask(state,task){
         
-        //const i = state.tasks.findIndex(task => task.id === id)
+        
         state.tasks.splice(task,1)
         localStorage.setItem('tasks', JSON.stringify(state.tasks))
     },

@@ -1,18 +1,11 @@
 <template>
  <div class="TaskList">
                 <h1 class="title">Task List</h1>
-                <hr/>
-                
+                <hr/>           
  <TaskList></TaskList>
 </div>
 </template>
-
 <script>
-
-    export default {
-
-  
-    }
 </script>
 
 <style lang="scss" scoped>
