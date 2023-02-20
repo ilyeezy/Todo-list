@@ -71,6 +71,9 @@ import { mapGetters,mapActions } from 'vuex';
         'init'
     ])
  },
+ /** 
+  * зачем async ?
+  */
  async mounted()  {
     this.init()
  }

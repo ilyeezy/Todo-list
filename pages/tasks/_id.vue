@@ -55,14 +55,6 @@
     <div class="form__button" v-if="task.TaskStatus !== 'Завершено'">
         <button type="submit" @click="submitHandler" class="button__Save">Save edits</button>
         <button type="button" @click="CompleteTask" class="button__Complete" style="margin-left:2rem">Complete task</button>
-        <transition name="fade">
-        <p 
-        v-bind="TimeOut()"
-        class="fade"
-        id="fade" name="fade"
-        v-if="click"
-        >Изменения успешно сохранены</p>
-    </transition>
     </div>
    
     <p class="form__TaskComplete" v-else>Задача успешно завершена</p>
@@ -191,15 +183,11 @@ import { mapGetters,mapActions } from 'vuex'
                     date:this.date,
                     time:this.time
                 }) 
-                
-                this.click = true;
-               
-                // setTimeout(()=>{
-                //     this.click = false;
-                // },0)
+                this.$toast.success('Задача обновлена')
             },
             CompleteTask(){
                 this.$store.dispatch('CompleteTask',this.task.id)
+                this.$toast.success('Задача выполнена')
             },
       
     ...mapActions([

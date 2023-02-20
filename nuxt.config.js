@@ -31,12 +31,23 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    'vue-toastification/nuxt',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    "@nuxtjs/axios"
+    "@nuxtjs/axios",
+    'vue-toastification/nuxt'
   ],
+
+  toast: {
+    position: 'bottom-center',
+    hideProgressBar: true,
+    closeButton: false,
+    transition: 'fade',
+    timeout: 2500,
+    maxToasts: 3
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

@@ -1,7 +1,8 @@
 <template>
+<!-- 4 layouts ваще долбаеб? -->
     <div>
    <headerVue></headerVue>
-     <nuxt></nuxt>
+     <nuxt />
     </div>
 </template>
 

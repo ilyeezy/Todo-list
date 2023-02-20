@@ -1,5 +1,5 @@
 <template>
-    
+    <!-- сделай просто флексами а не таблицей -->
               <tr  class="body">
               <td class="body__element"> {{ index + 1 }}</td>
               <td class="body__element">{{ task.title }}</td>
@@ -41,6 +41,7 @@ required:true
   methods:{
     removeTask(){
       this.$store.dispatch('removeTask',this.index)
+      this.$toast.error('Задача удалена')
     },
   
   },
