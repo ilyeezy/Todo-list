@@ -61,7 +61,7 @@ export const actions = {
         commit('removeTask', task)
     },
    
-    async init({commit}){
+    init({commit}){
         commit('init')
     }
 }

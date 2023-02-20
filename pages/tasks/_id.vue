@@ -1,5 +1,6 @@
 <template>
-        <div class="idTask" v-if="task">
+    <div>
+        <div class="idTask" v-if="task && isLoaded">
             <div >
     <h1  class="titleTask">{{ task.title }}</h1>
    </div>
@@ -55,21 +56,15 @@
     <div class="form__button" v-if="task.TaskStatus !== 'Завершено'">
         <button type="submit" @click="submitHandler" class="button__Save">Save edits</button>
         <button type="button" @click="CompleteTask" class="button__Complete" style="margin-left:2rem">Complete task</button>
-        <transition name="fade">
-        <p 
-        v-bind="TimeOut()"
-        class="fade"
-        id="fade" name="fade"
-        v-if="click"
-        >Изменения успешно сохранены</p>
-    </transition>
     </div>
    
     <p class="form__TaskComplete" v-else>Задача успешно завершена</p>
    </form>
  
         </div>
+        <p v-else-if="!isLoaded">Задача загружается</p>
         <p v-else>Task not found</p>
+    </div>
 </template>
 
 <script>
@@ -79,7 +74,7 @@ import { mapGetters } from 'vuex'
       
         data(){
             return {
-           
+                isLoaded: false,
                 tags:[],
                 tag:'',
                 maxLength: 2048,
@@ -89,28 +84,24 @@ import { mapGetters } from 'vuex'
                 title:'',
                 date:'',
                 time:''
-                
-                
             }
         },
         computed:{
-            ...mapGetters({
-                task:'getTaskbyId',
-                
-            }),
-           task(){
-           return this.$store.getters.getTaskbyId(+this.$route.params.id)
-           }
-         
+            task () {
+                return this.$store.getters.getTaskbyId(+this.$route.params.id)
+            }
         },
-              mounted(){
-           
-            this.decrtiption = this.task.decrtiption;
-            this.date = this.task.date;
-            this.time = this.task.time;
-            this.$nextTick(function(){
-                 this.resizeTextarea();
-            })
+
+        mounted(){
+            setTimeout(() => {
+                this.decrtiption = this.task.decrtiption;
+                this.date = this.task.date;
+                this.time = this.task.time;
+                this.isLoaded = true
+                setTimeout(() => {
+                    this.resizeTextarea();
+                })
+            }, 400)
         }, 
         
         destroyed(){
@@ -124,7 +115,7 @@ import { mapGetters } from 'vuex'
      
             methods:{
                 resizeTextarea() {
-                    let {textarea} = this.$refs
+                    let { textarea } = this.$refs
                     textarea.style.height = "33px";
                     textarea.style.height = textarea.scrollHeight + "px"; 
                 },
@@ -180,15 +171,14 @@ import { mapGetters } from 'vuex'
                     date:this.date,
                     time:this.time
                 }) 
-                
-                this.click = true;
-               
-            
+                this.$toast.success('Задача обновлена')
             },
             CompleteTask(){
                 this.$store.dispatch('CompleteTask',this.task.id)
+                this.$toast.success('Задача выполнена')
             },
-          
+      
+            
 
     
     }

@@ -1,5 +1,6 @@
 <template>
   <header>
+    <!-- TODO: настрой линтер, чтоб у тя все красиво было -->
     <nav >
       <div class="navbar">
     <div class="navbar__title">
@@ -16,8 +17,16 @@
   </header>
 </template>
 <script>
+    export default {
+        /**
+         * пустая хуйня?
+         */
+    }
 </script>
 <style lang="scss" scoped>
+/**
+ * !!!Глобальные стили 
+ */
 a.nuxt-link-active{
   color:rgb(255, 238, 0);
   height: 0;

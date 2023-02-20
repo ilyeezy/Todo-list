@@ -24,6 +24,7 @@
 </div>
 </div>
 <div  class="form__decrtiption decrtiption user-input-wrp">
+    <!-- что за магическая хуйня -->
     <br/>
     <span
     class="lenght"
@@ -140,22 +141,36 @@
                 }
             },
             submitHandler(){
-                const task = {
-                    title:this.title,
-                    tags: this.tags,
-                    time:this.time,
-                    date:this.date,
-                    decrtiption: this.decrtiption,
-                    id:Date.now(),
-                    TaskStatus:'В работе',
+                try {
+                    const task = {
+                        title:this.title,
+                        tags: this.tags,
+                        time:this.time,
+                        date:this.date,
+                        decrtiption: this.decrtiption,
+                        id:Date.now(),
+                        TaskStatus:'В работе',
+                    }
+                    /**
+                     * * удали ебаные консоль логи 
+                     */
+                    console.log(task)
+                    this.$store.dispatch('createTask', task)
+                    this.$toast.success('Задание добавлено')
+                    this.$router.push('/ListTask')
+                    this.date.split('').reverse()
+                } catch (e) {
+                    this.$toast.error(e)
                 }
-                this.$store.dispatch('createTask', task)
             }
         }
     }
 </script>
 
 <style lang="scss" scoped>
+/**
+ * * Хули пусто опять
+ */
 .inputTime{
   
     

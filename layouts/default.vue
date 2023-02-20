@@ -1,27 +1,26 @@
 <template>
+<!-- 4 layouts ваще долбаеб? -->
     <div>
    <headerVue></headerVue>
-     <nuxt></nuxt>
+     <nuxt />
     </div>
 </template>
 
 <script>
-
-import {mapActions} from 'vuex'
+import { mapActions } from 'vuex'
 import headerVue from '@/components/header.vue'
 export default {
 components:{
   headerVue
 },
-mounted(){
-this.init()
+mounted () {
+  this.init()
 },
-methods:{
+methods: {
   ...mapActions([
-        'init'
+      'init'
     ])
-        
-}
+},
 }
 </script>
 <style >

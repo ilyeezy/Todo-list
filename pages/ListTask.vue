@@ -1,11 +1,24 @@
 <template>
  <div class="TaskList">
                 <h1 class="title">Task List</h1>
-                <hr/>           
- <TaskList></TaskList>
+                <hr/>
+                
+ <TaskList :is-loaded="isLoaded" />
 </div>
 </template>
 <script>
+    export default {
+        data () {
+            return {
+                isLoaded: false
+            }
+        },
+        mounted () {
+            setTimeout(() => {
+                this.isLoaded = true
+            }, 400)
+        }
+    }
 </script>
 
 <style lang="scss" scoped>
