@@ -1,5 +1,4 @@
 <template>
-
  <form @keydown.enter="$event.preventDefault()"  @submit.prevent="submitHandler" class="CreateTusk__form form">
 <div class="form__inputs inputs">
     <div class="user-input-wrp">
@@ -14,26 +13,16 @@
       <button @click="deleteTag(i)" class="tags__button">x</button></div>
   </div>  
   <input placeholder=" " id="tags"  @keyup.prevent.enter="addTag(tag) | myFilter()" type="text"  v-model="tag" class="inputText" />
-  
   <label for="tags" class="floating-label">Tags</label>
-
 </div>
-
 <div class="user-input-wrp">
   <br/>
- 
    <div style="display:flex">
-
     <input placeholder=" " class="inputText inputTime" v-model="time" id="time" type="time" required>
-  
     <input placeholder=" "  v-model="date"  id="date" type="date"  class="inputText" required /> 
 </div>
-    
- 
 </div>
-
 </div>
-
 <div  class="form__decrtiption decrtiption user-input-wrp">
     <br/>
     <span
@@ -52,12 +41,10 @@
     :maxlength="maxLength"
     v-model="decrtiption"
     wrap="hard"
-    
     ></textarea>
     <label for="description"
     class="floating-label floating-label__descrip"
     >Description</label>
-  
 </div>
 
     <div class="form__button">
@@ -71,7 +58,6 @@
     export default {
         data(){
             return {
-              
                 tags:[],
                 tag:'',
                 maxLength: 2048,
@@ -80,9 +66,6 @@
                 decrtiption:'',
                 title:'',
                 date:'',
-                
-           
-                
             }
         },
       
@@ -96,7 +79,7 @@
    
              this.date = new Date().toISOString().slice(0,10);
              this.time = new Date().toLocaleTimeString().slice(0,5)
-             console.log(this.time)
+            
         },
         destroyed(){
             if(this.date && this.date.destroy){
@@ -107,18 +90,6 @@
             }
         },
         methods:{
-    //         createTusk(){
-    //             this.task.id = Date.now();
-    //         this.$emit("create",this.task );
-    //         this.task = {
-    //             decrtiption:'',
-    //             title:'',
-    //             date:'',
-    //             id:0
-                
-    //   };
-    //   this.tags = ''
-    //         },
             addTag(tag){
                 if(this.tag ===''){
                     return
@@ -178,10 +149,7 @@
                     id:Date.now(),
                     TaskStatus:'В работе',
                 }
-                console.log(task)
                 this.$store.dispatch('createTask', task)
-                this.date.split('').reverse()
-               
             }
         }
     }

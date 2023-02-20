@@ -31,7 +31,7 @@ export const mutations = {
         state.tasks[i] = {...task,date,time,decrtiption,TaskStatus}
 
        localStorage.setItem('tasks', JSON.stringify(state.tasks))
-        console.log(tA)
+       
     },
     CompleteTask(state,id){
         const i = state.tasks.findIndex(task => task.id === id)
@@ -40,13 +40,13 @@ export const mutations = {
     },
     removeTask(state,task){
         
-        //const i = state.tasks.findIndex(task => task.id === id)
+        
         state.tasks.splice(task,1)
         localStorage.setItem('tasks', JSON.stringify(state.tasks))
     },
    
   
-}
+} 
 export const actions = {
     createTask({commit},task){
         commit('createTask', task)
@@ -61,8 +61,8 @@ export const actions = {
         commit('removeTask', task)
     },
    
-    async init(context){
-        context.commit('init')
+    async init({commit}){
+        commit('init')
     }
 }
 export const getters = {
