@@ -1,20 +1,20 @@
 <template>
   <div class="TaskItem__elements">
-    <div id="N" class="TaskItem__elements__element number">{{ index + 1 }}</div>
-    <div id="Title" class="TaskItem__elements__element title">
+    <div id="N" class="TaskItem__elements__element ">{{ index + 1 }}</div>
+    <div id="Title" class="TaskItem__elements__element ">
       {{ task.title }}
     </div>
-    <div id="Date" class="TaskItem__elements__element date">
+    <div id="Date" class="TaskItem__elements__element ">
       До: {{ task.time }} {{ task.date }}
     </div>
 
-    <div id="Description" class="TaskItem__elements__element description">
+    <div id="Description" class="TaskItem__elements__element ">
       {{ task.decrtiption }}
     </div>
-    <div id="Status" class="TaskItem__elements__element status">
+    <div id="Status" class="TaskItem__elements__element ">
       {{ task.TaskStatus }}
     </div>
-    <div id="More" class="TaskItem__elements__element more">
+    <div id="More" class="TaskItem__elements__element ">
       <nuxt-link class="btnLink" :to="'/tasks/' + task.id">Open</nuxt-link>
       <span class="btn"
         ><button
@@ -50,7 +50,7 @@ export default {
   methods: {
     removeTask() {
       this.$store.dispatch("removeTask", this.index);
-      this.$toast.error("Задача удалена");
+      this.$toast.success("Задача удалена");
     },
   },
 };
@@ -64,9 +64,10 @@ export default {
 
     &__element {
       padding: 0.8em 1em;
+      max-width: 16.66%;
       box-sizing: border-box;
+      word-break: break-word;
       flex-grow: 1;
-      overflow: hidden;
       list-style: none;
     }
   }
@@ -93,24 +94,5 @@ export default {
     font-size: 16px;
     font-family: "Courier New", Courier, monospace;
   }
-}
-.description {
-  width: 35.5%;
-  text-overflow: ellipsis;
-}
-.date {
-  width: 20%;
-}
-.title {
-  width: 13%;
-}
-.number {
-  width: 5%;
-}
-.status {
-  width: 13%;
-}
-.more {
-  width: 13.5%;
 }
 </style>

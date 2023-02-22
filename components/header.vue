@@ -10,7 +10,7 @@
               no-prefetch
               id="nav_tasks"
               active-class="acrive"
-              :to="'/mainTask'"
+              :to="'/'"
               >TodoList</nuxt-link
             >
           </h1>
@@ -18,10 +18,22 @@
         <div class="navbar__menu">
           <ul class="menu__list">
             <li class="list__element">
-              <nuxt-link class="a" :to="'/CreateTusk'">Create </nuxt-link>
+              <nuxt-link
+                class="a"
+                :to="'/CreateTusk'"
+                :disabled="$router.path === '/CreateTusk'"
+              >
+                Create
+              </nuxt-link>
             </li>
             <li class="list__element">
-              <nuxt-link class="a" :to="'/ListTask'">List</nuxt-link>
+              <nuxt-link
+                class="a"
+                :to="'/ListTask'"
+                :disabled="$router.path === '/ListTask'"
+              >
+                List
+              </nuxt-link>
             </li>
           </ul>
         </div>
@@ -33,13 +45,11 @@
 a.nuxt-link-active {
   color: rgb(255, 238, 0);
   height: 0;
-  cursor: text;
 }
 a.nuxt-link-exact-active {
   color: black;
   color: rgb(255, 238, 0);
   height: 0;
-  cursor: text;
 }
 .title {
   display: flex;
